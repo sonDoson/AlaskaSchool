@@ -1,4 +1,4 @@
-<div class="nav-left col-md-1 col-lg-1 col-xl-2">
+<div class="nav-left col-md-0 col-lg-0 col-xl-2">
     <ul>
         @foreach($contact['link'] as $key => $value)
             @if($value['link'] !== '')

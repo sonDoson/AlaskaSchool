@@ -15,7 +15,7 @@
     <link href="{{ asset('css/client/header/banner_01.css') }}" rel="stylesheet" />
     <link href="{{ asset('css/client/content/left_side.css') }}" rel="stylesheet" />
     <link href="{{ asset('css/client/content/introduce.css') }}" rel="stylesheet" />
-    <link href="{{ asset('css/client/content/layout_01_page.css') }}" rel="stylesheet" />
+    <link href="{{ asset('css/client/content/layout_02_page.css') }}" rel="stylesheet" />
     <link href="{{ asset('css/client/content/lv_category.css') }}" rel="stylesheet" />
     <link href="{{ asset('css/client/header/banner-01-css.css') }}" rel="stylesheet" />
     <link href="{{ asset('css/client/items/items.css') }}" rel="stylesheet" />

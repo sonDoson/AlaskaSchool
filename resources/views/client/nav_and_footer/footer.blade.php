@@ -1,6 +1,6 @@
 <footer>
     <div class="row section">
-        <div id="footer-left" class="col-xs-12 col-sm-12 col-md-12 col-lg-3 col-xl-3">
+        <div id="footer-left" class="col-xs-12 col-sm-12 col-md-12 col-lg-3 col-xl-3" style="margin-bottom: 30px;">
             <div id="footer-left-img">
                 <img src="{{ asset('uploads/logo/logo02.png') }}" alt="alaska school" width="auto" height="100%" />
             </div>

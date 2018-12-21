@@ -1,6 +1,6 @@
 @extends('client.layout.posts_static')
 @section('content')
-    <div class="content-wrap col-md-0 col-lg-10 col-xl-7" style="padding-right:0;">
+    <div class="content-wrap col-md-12 col-lg-12 col-xl-7" style="padding-right:0;">
     <div class="content-text font-resize">
         <h2 style="display: inline-block">{!! $section_0[$lang[0]] !!}</h2>
         @if($file !== null)

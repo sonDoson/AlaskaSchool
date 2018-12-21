@@ -10,12 +10,13 @@
 @media (min-width: 992px) and (max-width: 1199px) {
   
     .content-wrap{
+        margin: 0 auto;
     }
     .content-text{
-        width: 940px;
+        width: 620px;
         margin: 0 auto;
         img{
-            max-width: 940px !important;
+            max-width: 620px !important;
             height: auto !important;
         }
     }
