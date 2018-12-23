@@ -12,15 +12,16 @@ class ControllerCmsUser extends Controller
     public function getCmsUserList(Request $request){
         //validator user role
         $user_validator = CmsUser::userRoleValidator(1, 'view');
+        $user_validator_all = CmsUser::userRoleValidatorAll(1);
         if($user_validator === 0){return redirect()->route('getCmsRollBack');}
         //
         $menu = Cms::menu();
         $name_class = "list";
         $user_list = CmsUser::userList();
         //page mode
-        $page_mode = new PageMode(3, 2, 'users', 1);
+        $page_mode = new PageMode(5, 10, 'users', 1);
         $page_round = $page_mode->page_round();
-        return view('cms.content.user_list', compact('menu', 'name_class', 'user_list', 'page_mode', 'page_round'));
+        return view('cms.content.user_list', compact('user_validator_all', 'menu', 'name_class', 'user_list', 'page_mode', 'page_round'));
     }
     public function getCmsUserAdd(){
         //validator user role
@@ -35,7 +36,10 @@ class ControllerCmsUser extends Controller
     }
     public function postCmsUserAdd(Request $request){
         $return = CmsUser::userAdd($request);
-        var_dump($return);
+        if($return !== 0){
+            return redirect()->back()->withErrors($return[0]);
+        }   
+        return redirect()->route('getCmsUserList');
     }
     //Edit
     public function getCmsUserEdit(Request $request){
@@ -53,17 +57,18 @@ class ControllerCmsUser extends Controller
         return view('cms.content.user_edit', compact('menu', 'name_class', 'user_role_name', 'layout', 'user_profile'));
     }
     public function postCmsUserEdit(Request $request){
-        return redirect()->route('getCmsRollBack');
+        CmsUser::userUpdate($request);
+        return redirect()->route('getCmsUserList');
+        //return redirect()->route('getCmsRollBack');
     }
     
     //Delete
     public function postCmsUserDelete(Request $request){
         //validator user role
         $user_validator = CmsUser::userRoleValidator(1, 'delete');
-        if($user_validator === 0){
-            return redirect()->route('getCmsRollBack');
-        }
-        
+        if($user_validator === 0){return redirect()->route('getCmsRollBack');}
+        CmsUser::userDelete($request->value);
+        return redirect()->route('getCmsUserList');
     }
     
     
@@ -71,6 +76,7 @@ class ControllerCmsUser extends Controller
     public function getCmsUserRole(){
         //validator user role
         $user_validator = CmsUser::userRoleValidator(1, 'view');
+        $user_validator_all = CmsUser::userRoleValidatorAll(1);
         if($user_validator === 0){
             return redirect()->route('getCmsRollBack');
         }
@@ -78,14 +84,12 @@ class ControllerCmsUser extends Controller
         $menu = Cms::menu();
         $name_class = "list";
         $user_role_name = CmsUser::roleCategory();
-        return view('cms.content.user_role', compact('menu', 'name_class','user_role_name'));
+        return view('cms.content.user_role', compact('user_validator_all', 'menu', 'name_class','user_role_name'));
     }
     public function getCmsUserRoleAdd(){
         //validator user role
         $user_validator = CmsUser::userRoleValidator(1, 'add');
-        if($user_validator === 0){
-            return redirect()->route('getCmsRollBack');
-        }
+        if($user_validator === 0){return redirect()->route('getCmsRollBack');}
         //
         $menu = Cms::menu();
         $menu_category = Cms::menuCategory();
@@ -95,17 +99,18 @@ class ControllerCmsUser extends Controller
     }
     public function postCmsUserRoleAdd(Request $request){
         $return = CmsUser::userRoleAdd($request);
-        var_dump($return);
+        if($return !== 0){
+            return redirect()->back()->withErrors($return[0]);
+        }  
+        return redirect()->route('getCmsUserRole');
     }
     //Delete
     public function postCmsUserRoleDelete(Request $request){
         //validator user role
         $user_validator = CmsUser::userRoleValidator(1, 'delete');
-        if($user_validator === 0){
-            return redirect()->route('getCmsRollBack');
-        }
-    }
-    public function getCmsUserRoleEdit(){
-        
+        if($user_validator === 0){return redirect()->route('getCmsRollBack');}
+        //do delete
+        CmsUser::userRoleDelete($request->value);
+        return redirect()->route('getCmsUserRole');
     }
 }

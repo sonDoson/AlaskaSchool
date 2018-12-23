@@ -2,14 +2,18 @@
   margin: 0;
   font-family: Sans-serif; }
 
-p, .inner {
+.content-text, .inner {
   color: #2b2b2b; }
+  .content-text h2, .inner h2 {
+    color: #2b2b2b; }
 
-h2 {
-  color: #2b2b2b; }
+.right-side h2 {
+  color: #f89c22; }
 
 a {
   text-decoration: none; }
+  a h4 {
+    color: #2b2b2b; }
 
 ol, ul {
   list-style: none;

@@ -9,9 +9,6 @@
         </ul>
     </div>
 @endif
-@if(isset($return))
-{!! $return !!}
-@endif
 <h2 id="title" >Sửa Bài Viết - {{ $db_item['name_vn'] }}</h2>
 <div class="wrap-inline-block">
 <div class="box form">

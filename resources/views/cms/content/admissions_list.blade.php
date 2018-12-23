@@ -18,7 +18,11 @@
                 <td class="table-name">&nbsp;&nbsp;{!! $value->name_vn !!}</td>
                 <td class="table-btn">
                     <div class="btn-list-wrap">
-                        <a href="{{ asset('cms/Admissions/EditForm?id=') . $value->id }}"><button class="btn-list edit"><i class="fas fa-pen"></i></button></a>
+                        @if($user_validator_all->edit == 1)
+                            <a href="{{ asset('cms/Admissions/EditForm?id=') . $value->id }}"><button class="btn-list edit"><i class="fas fa-pen"></i></button></a>
+                        @else
+                            <button class="btn-list edit" style="background-color: lightgrey!important;"><i class="fas fa-pen" style="color: grey"></i></button>
+                        @endif
                         <button class="btn-list delete" style="background-color: lightgrey!important;"><i class="fas fa-trash-alt" style="color: grey"></i></button>
                     </div>
                 </td>

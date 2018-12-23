@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
+use Auth;
 use Mail;
 
 class ControllerUserRePasswd extends Controller
@@ -14,7 +15,8 @@ class ControllerUserRePasswd extends Controller
     public function postRePasswd(Request $request){
         $db = DB::table('users')->where('email', $request->email)->first();
         if(!empty($db)){
-            $email = DB::table('users')->where('id', 1)->first();
+            $id = Auth::id();
+            $email = DB::table('users')->where('id', $id)->first();
             $email = $email->email;
         
             //new passthru
@@ -30,8 +32,8 @@ class ControllerUserRePasswd extends Controller
             }
             $pass = randomPassword();
             $bcrypt_pass =  bcrypt($pass);
-            DB::table('users')->where('id', 1) ->update(['password' => $bcrypt_pass]);
-            $user_name = DB::table('users')->where('id', 1)->value('name');
+            DB::table('users')->where('id', $id) ->update(['password' => $bcrypt_pass]);
+            $user_name = DB::table('users')->where('id', $id)->value('name');
         
             $data['content'] = $pass; 
             $data['name'] = $user_name; 

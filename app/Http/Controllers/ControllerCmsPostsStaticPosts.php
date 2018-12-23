@@ -6,15 +6,21 @@ use Illuminate\Http\Request;
 use App\Sources\Cls\WebClass\Func\Cms;
 use App\Sources\Cls\WebClass\Func\CmsPosts;
 use App\Sources\Cls\WebClass\Func\ClientContact;
+use App\Sources\Cls\WebClass\Func\CmsUser;
 use DB;
 
 class ControllerCmsPostsStaticPosts extends Controller
 {
     public function getCmsPostsStaticPostsList(Request $request){
+        //validator user role
+        $user_validator = CmsUser::userRoleValidator(4, 'view');
+        $user_validator_all = CmsUser::userRoleValidatorAll(4);
+        if($user_validator === 0){return redirect()->route('getCmsRollBack');}
+        //
         $menu = Cms::menu();
         $name_class = "list";
         $route = "Static-Posts";
-        return view('cms.content.posts_static_posts_list', compact('menu', 'name_class', 'route'));
+        return view('cms.content.posts_static_posts_list', compact('user_validator_all', 'menu', 'name_class', 'route'));
     }
     public function getCmsContactEdit(){
         $menu = Cms::menu();

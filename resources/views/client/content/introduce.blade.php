@@ -124,7 +124,7 @@
                     <div class="big-news-item-content font-resize">
                         <h4>{!! $section_1[key($section_1)][$i][$lang[0]] !!}</h4>
                         <div class="big-news-item-content-text">
-                            <p>{!! $section_1[key($section_1)][$i][$lang[1]] !!}</p>
+                            <p>{!! $section_1[key($section_1)][$i][$lang[2]] !!}</p>
                         </div>
                         <p>{!! $section_1[key($section_1)][$i]['created_at']['string'] !!}</p>
                     </div>

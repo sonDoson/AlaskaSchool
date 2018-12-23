@@ -1,9 +1,14 @@
+//su dung cho phan trang
+
 //Load Url
 var get = [];
-var get_name = ['page', 'soft'];
+var get_name = [ 'search', 'soft', 'page']; //id url
+//
 var str = window.location.href;
 var res = str.split("?");
 var res_sub = res[1].split("&");
+
+//
 res_sub.forEach(subRes);
 function subRes(val){
     val_sub = val.split("=");
@@ -18,7 +23,6 @@ function makingUrlAndGo(){
     window.location.href = url;
 }
 function goHref(item, index){
-    console.log(get_name[index] + "=" + item + "&"); 
     url += get_name[index] + "=" + item + "&";
 }
 
@@ -28,4 +32,11 @@ function arraySearch(arr,val) {
         if (arr[i] === val)                    
             return i;
     return false;
+}
+
+//function get request on url
+function requestUrl(){
+    var str = window.location.href;
+    var res = str.split("?");
+    return res[1];
 }

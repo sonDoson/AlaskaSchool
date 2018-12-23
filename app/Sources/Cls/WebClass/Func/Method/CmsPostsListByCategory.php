@@ -8,7 +8,7 @@ class CmsPostsListByCategory{
     public static function postsListByCategory($id_category, $request = null){
         //index
         $index = 0;
-        if(isset($request['index'])){ $index = $request['index']; }
+        if(isset($request['page'])){ $index = $request['page'] - 1; }
         $item = 10;
         $skip = $index * $item;
         //default soft

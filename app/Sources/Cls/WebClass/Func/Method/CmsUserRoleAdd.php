@@ -32,6 +32,7 @@ class CmsUserRoleAdd{
                     'delete' =>(isset($value['delete']['checked'])) ? 1 : 0,
                 ]);
             }
+            return 0;
         }
     }
 }

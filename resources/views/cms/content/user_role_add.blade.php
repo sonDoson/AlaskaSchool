@@ -1,6 +1,16 @@
 @extends('cms.layout.cms_layout')
 @section('content')
 
+@if ($errors->any())
+    <div id="errors">
+        <ul>
+            @foreach($errors->all(':message') as $value)
+                <li>{{ $value }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
 <h2 id="title" >Thêm vai trò người dùng</h2>
 
 <div class="wrap-inline-block">

@@ -1,5 +1,15 @@
 @extends('cms.layout.cms_layout')
 @section('content')
+@if ($errors->any())
+    <div id="errors">
+        <ul>
+            @foreach($errors->all(':message') as $value)
+                <li>{{ $value }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
 <h2 id="title" >Danh sách - Nội Dung Tĩnh</h2>
 <div class="box list" >
     <table class="table">
@@ -20,8 +30,12 @@
                 <td class="table-time"></td>
                 <td class="table-btn">
                     <div class="btn-list-wrap">
-                        <a href="{{ asset('cms/Posts') . '/' . $route . '-Edit-Contact' }}"><button class="btn-list edit"><i class="fas fa-pen"></i></button></a>
-                        <button class="btn-list" style="background-color: lightgrey!important;"><i class="fas fa-trash-alt"></i></button>
+                        @if($user_validator_all->edit == 1)
+                            <a href="{{ asset('cms/Posts') . '/' . $route . '-Edit-Contact' }}"><button class="btn-list edit"><i class="fas fa-pen"></i></button></a>
+                        @else
+                            <button class="btn-list edit" style="background-color: lightgrey!important;"><i class="fas fa-pen" style="color: grey"></i></button>
+                        @endif
+                        <button class="btn-list" style="background-color: lightgrey!important;"><i class="fas fa-trash-alt"  style="color: grey"></i></button>
                     </div>
                 </td>
             </tr>
@@ -32,8 +46,12 @@
                 <td class="table-time"></td>
                 <td class="table-btn">
                     <div class="btn-list-wrap">
-                        <a href="{{ asset('cms/Posts') . '/' . $route . '-Edit-Footer-Text' }}"><button class="btn-list edit"><i class="fas fa-pen"></i></button></a>
-                        <button class="btn-list" style="background-color: lightgrey!important;"><i class="fas fa-trash-alt"></i></button>
+                        @if($user_validator_all->edit == 1)
+                            <a href="{{ asset('cms/Posts') . '/' . $route . '-Edit-Footer-Text' }}"><button class="btn-list edit"><i class="fas fa-pen"></i></button></a>
+                        @else
+                            <button class="btn-list edit" style="background-color: lightgrey!important;"><i class="fas fa-pen" style="color: grey"></i></button>
+                        @endif
+                        <button class="btn-list" style="background-color: lightgrey!important;"><i class="fas fa-trash-alt" style="color: grey"></i></button>
                     </div>
                 </td>
             </tr>

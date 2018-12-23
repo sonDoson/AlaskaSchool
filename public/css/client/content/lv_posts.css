@@ -1,3 +1,7 @@
+@media (min-width: 1200px) {
+  .content-text img {
+    max-width: 620px !important;
+    height: auto !important; } }
 @media (min-width: 992px) and (max-width: 1199px) {
   .content-wrap {
     margin: 0 auto; }

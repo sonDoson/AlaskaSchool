@@ -1,6 +1,5 @@
-@extends('user.layout.master_user_layout')
+@extends('cms.layout.cms_layout')
 @section('content')
-
 @if ($errors->any())
     <div id="errors">
         <ul>
@@ -11,7 +10,7 @@
     </div>
 @endif
 
-<h2 id="title" >Setting</h2>
+<h2 id="title" >Thông tin người dùng</h2>
 <div class="wrap-inline-block">
 <div class="box form">
     <form method="POST" action="" enctype="multipart/form-data">
@@ -20,13 +19,19 @@
         <tr>
             <td class="post-td"><label>Tên đăng nhập: </label></td>
             <td class="post-td">
-                <input class="input-style" type="text" name="name" placeholder="" />
+                <input class="input-style" type="text" name="name" placeholder="{{ $db_user->name }}" />
             </td>
         </tr>
         <tr>
             <td class="post-td"><label>Địa chỉ email: </label></td>
             <td class="post-td">
-                <input class="input-style" type="text" name="email" placeholder="...@email.com" />
+                <input class="input-style" type="text" name="email" placeholder="{{ $db_user->email }}" />
+            </td>
+        </tr>
+        <tr>
+            <td class="post-td"><label>Số điện thoại: </label></td>
+            <td class="post-td">
+                <input class="input-style" type="text" name="phone" placeholder="{{ $db_user_info->phone }}" />
             </td>
         </tr>
         <tr>
@@ -42,13 +47,6 @@
                 <input class="input-style" type="text" name="pw_new[]" placeholder="Nhập lại mật khẩu mới" />
             </td>
         </tr>
-        <tr>
-            <td class="post-td"><label>Video từ facebook: </label></td>
-            <td class="post-td">
-                <input class="input-style" type="text" name="link_video" placeholder="link videos từ facebook" />
-            </td>
-        </tr>
-
         </table>     
         <button class="btn btn-submit">Cập nhật</i></button>
     </form>

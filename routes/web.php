@@ -50,6 +50,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/cms/User/Role/Add', 'ControllerCmsUser@getCmsUserRoleAdd')->name('getCmsUserRoleAdd');
     Route::post('/cms/User/Role/Add', 'ControllerCmsUser@postCmsUserRoleAdd')->name('postCmsUserRoleAdd');
     Route::get('/cms/User/Role/Edit', 'ControllerCmsUser@getCmsUserRoleEdit')->name('getCmsUserRoleEdit');
+    Route::post('/cms/User/Role/Delete', 'ControllerCmsUser@postCmsUserRoleDelete')->name('postCmsUserRoleDelete');
     //Cms Recruitment
     Route::get('/cms/Recruitment/List', 'ControllerCmsRecruiment@getCmsRecruimentList')->name('getCmsRecruimentList');
     //Cms Admissions
@@ -108,6 +109,9 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/cms/Posts/Static-Posts-Edit-Contact', 'ControllerCmsPostsStaticPosts@postCmsContactEdit')->name('postCmsContactEdit');
     Route::get('/cms/Posts/Static-Posts-Edit-Footer-Text', 'ControllerCmsPostsStaticPosts@getCmsFooterTextEdit')->name('getCmsFooterTextEdit');
     Route::post('/cms/Posts/Static-Posts-Edit-Footer-Text', 'ControllerCmsPostsStaticPosts@postCmsFooterTextEdit')->name('postCmsFooterTextEdit');
+    //posts delete
+    Route::post('/cms/Posts/Delete', 'ControllerCmsPostsDelete@postCmsPostsDelete')->name('postCmsPostsDelete');
+    
     
     //
     Route::get('/user/welcome', 'ControllerUserWelcome@getUserWelcome')->name('getUserWelcome');
