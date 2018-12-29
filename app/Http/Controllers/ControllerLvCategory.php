@@ -43,6 +43,6 @@ class ControllerLvCategory extends Controller
         }   elseif($id == 5)    {
             $section_3 = ClientItem::getListItem('registration', 2);
         }
-        return view('client.content.lv_category', compact('static_text', 'lang_section', 'lang', 'contact', 'category', 'section_1', 'section_3', 'section_0', 'category_item'));
+        return view('client.content.lv_category', compact('static_text', 'lang_section', 'lang', 'contact', 'category', 'section_1', 'section_3', 'section_0', 'category_item', 'id'));
     }
 }

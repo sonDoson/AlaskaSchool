@@ -59,3 +59,4 @@ function hoverSmoke(margin_left, index){
         $('.smoke-slider-left').css('opacity','1');
     }
 }
+

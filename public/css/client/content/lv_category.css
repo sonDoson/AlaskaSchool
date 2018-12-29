@@ -1,21 +1,43 @@
+.btn-loadmore #load_more {
+  border: none;
+  line-height: 30px;
+  color: #fff;
+  font-weight: bold;
+  background-color: #f99d1b;
+  transition: 0.2s; }
+  .btn-loadmore #load_more:hover {
+    background-color: #c3161b; }
+
 @media (min-width: 1200px) {
   .bn-section-0 {
     width: 956px; } }
 @media (min-width: 992px) and (max-width: 1199px) {
   .bn-section-0 {
     width: 956px;
-    margin: 0 auto; } }
+    margin: 0 auto; }
+
+  .btn-loadmore {
+    text-align: center; } }
 @media (min-width: 768px) and (max-width: 991px) {
   .bn-section-0 {
     width: 636px;
-    margin: 0 auto; } }
+    margin: 0 auto; }
+
+  .btn-loadmore {
+    text-align: center; } }
 @media (min-width: 576px) and (max-width: 767px) {
   .bn-section-0 {
     width: 636px;
-    margin: 0 auto; } }
+    margin: 0 auto; }
+
+  .btn-loadmore {
+    text-align: center; } }
 @media (min-width: 0px) and (max-width: 575px) {
   .bn-section-0 {
     width: 300px;
-    margin: 0 auto; } }
+    margin: 0 auto; }
+
+  .btn-loadmore {
+    text-align: center; } }
 
 /*# sourceMappingURL=lv_category.css.map */

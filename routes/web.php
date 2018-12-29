@@ -32,6 +32,8 @@ Route::post('/login', 'ControllerUserLogin@postLogin')->name('postLogin');
 Route::get('/logout', 'ControllerUserLogout@getLogout')->name('getLogout');
 Route::get('/user/repasswd', 'ControllerUserRePasswd@getRePasswd')->name('getRePasswd');
 Route::post('/user/repasswd', 'ControllerUserRePasswd@postRePasswd')->name('postRePasswd');
+//Load More Item
+Route::get( '/ajaxLoadMoreItem', 'ControllerLoadMoreItem@getLoadMoreItem');
 
 Route::group(['middleware' => ['auth']], function () {
     //CMS
@@ -111,6 +113,19 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/cms/Posts/Static-Posts-Edit-Footer-Text', 'ControllerCmsPostsStaticPosts@postCmsFooterTextEdit')->name('postCmsFooterTextEdit');
     //posts delete
     Route::post('/cms/Posts/Delete', 'ControllerCmsPostsDelete@postCmsPostsDelete')->name('postCmsPostsDelete');
+    //banner
+    Route::get('/cms/Posts/Banner', 'ControllerCmsBanner@getCmsBanner')->name('getCmsBanner');
+    Route::post('/cms/Posts/Banner', 'ControllerCmsBanner@postCmsBanner')->name('postCmsBanner');
+    //360 galary
+    Route::get('/cms/360-Alaska/Category', 'ControllerCmsGalary@getCmsGalaryCategoryList')->name('getCmsGalaryCategoryList');
+    Route::get('/cms/360-Alaska/Category-Add', 'ControllerCmsGalary@getCmsGalaryCategoryAdd')->name('getCmsGalaryCategoryAdd');
+    Route::post('/cms/360-Alaska/Category-Add', 'ControllerCmsGalary@postCmsGalaryCategoryAdd')->name('postCmsGalaryCategoryAdd');
+    
+    //
+    Route::get('/cms/360-Alaska/Posts', 'ControllerCmsGalary@getCmsGalaryPostsList')->name('getCmsGalaryPostsList');
+    Route::get('/cms/360-Alaska/Posts-Add', 'ControllerCmsGalary@getCmsGalaryPostsAdd')->name('getCmsGalaryPostsAdd');
+    Route::post('/cms/360-Alaska/Posts-Add', 'ControllerCmsGalary@postCmsGalaryPostsAdd')->name('postCmsGalaryPostsAdd');
+    
     
     
     //

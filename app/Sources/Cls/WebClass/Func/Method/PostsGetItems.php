@@ -5,9 +5,10 @@ use Illuminate\Support\Facades\DB;
 use App\Sources\Cls\WebClass\Func\Method\PostsGetSingleItem;
 
 class PostsGetItems{
-    public static function postsGetItems($table_posts, $id_category, $take = 10){ 
+    public static function postsGetItems($table_posts, $id_category, $take = 10, $page = 0){ 
+        $skip = $take * $page;
         //get list id
-        $list_id = DB::table($table_posts)->select('id')->where('id_category', $id_category )->take($take)->get();
+        $list_id = DB::table($table_posts)->select('id')->where('id_category', $id_category )->skip($skip)->take($take)->get();
         //get cate name
         $category_name = DB::table(substr_replace($table_posts, "category", -5))->where('id', $id_category)->first();
         $category_name = $category_name->name_vn;

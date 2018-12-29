@@ -12,6 +12,9 @@ use DB;
 class ControllerCmsPosts extends Controller
 {
     public function getCmsPostsList(){
+        //validator user role
+        $user_validator = CmsUser::userRoleValidator(4, 'view');
+        if($user_validator === 0){return redirect()->route('getCmsRollBack');}
         $menu = Cms::menu();
         $name_class = "list";
         $db_list = CmsPosts::postsList();

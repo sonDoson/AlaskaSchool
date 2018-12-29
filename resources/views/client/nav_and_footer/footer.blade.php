@@ -1,5 +1,5 @@
 <footer>
-    <div class="row section">
+    <div class="row section" style="padding-bottom: 30px;">
         <div id="footer-left" class="col-xs-12 col-sm-12 col-md-12 col-lg-3 col-xl-3" style="margin-bottom: 30px;">
             <div id="footer-left-img">
                 <img src="{{ asset('uploads/logo/logo02.png') }}" alt="alaska school" width="auto" height="100%" />
@@ -10,9 +10,9 @@
             <div id="footer-text">
                 <div>
                     <h4>{{ $static_text[2][2][$lang[1]] }}:</h4>
-                    <p>Ad: {!! $contact['address'] !!}</p>
-                    <p>T: {!! $contact['phone'] !!} | F: {!! $contact['fax'] !!}</p>
-                    <p>E: {!! $contact['email'] !!}</p>
+                    <p></p><i class="fas fa-map-marker-alt"></i> {!! $contact['address'] !!}</p>
+                    <p><i class="fas fa-phone"></i> {!! $contact['phone'] !!}</p>
+                    <p><i class="far fa-envelope"></i> {!! $contact['email'] !!}</p>
                 </div>
                 <div id="footer-left-conect">
                     <br>
@@ -32,7 +32,15 @@
         <!--text-->
         <div id="footer-right" class="col-xs-12 col-sm-12 col-md-12 col-lg-3 col-xl-3">
             <div class="row" style="width: 100%; height: 100%;margin: 0" >
-                {!! $contact['footer_text'][$lang[1]] !!}
+                <ul>
+                    <li><a href="{{ asset('/') }}">{{ $static_text[4][4][$lang[1]] }}</a></li>
+                    <li><a style="width: 250px;" id="nav_contact"  href="{{ '/contact' }}">{{ $contact[$lang[0]] }}</a></li>
+                    @for($i = 1; $i <= 5; $i++)
+                        <li>
+                            <a style="width: 250px;" id="{{ 'nav_' . $i }}" href="{{ '/cat/' . $i }}">{{ $category[$i][$lang[0]] }}</a>
+                        </li>
+                    @endfor
+                </ul>
             </div>
         </div>
     </div>

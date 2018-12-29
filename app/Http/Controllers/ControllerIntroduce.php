@@ -34,6 +34,8 @@ class ControllerIntroduce extends Controller
         //$section_0 = PostsGetItems::postsGetItems('posts_posts', 1);
         //$link = DB::table('video_link')->where('id',1)->first();
         //$link = $link->value;
+        //banner
+        $banner_images = DB::table('banner_images')->get();
         //section 1
         $section_1 = PostsGetItems::postsGetItems('posts_posts', 4);
         //section 2
@@ -42,6 +44,6 @@ class ControllerIntroduce extends Controller
         $section_3[0] = ClientItem::getListItem('posts_static', 1);
         $section_3[1] = ClientItem::getListItem('registration', 1);
         
-        return view('client.content.introduce', compact('static_text', 'lang_section', 'lang', 'contact', 'category', 'link', 'section_1', 'section_2', 'section_3'));
+        return view('client.content.introduce', compact('static_text', 'lang_section', 'lang', 'contact', 'category', 'link', 'section_1', 'section_2', 'section_3', 'banner_images'));
     }
 }

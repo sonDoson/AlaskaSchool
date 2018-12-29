@@ -8,9 +8,9 @@
             <a style="color: #000" href="{!! '/cat/' . $value['id_category']. '/' . $value['id'] !!}">
                 <div class="big-news-item-image" style="background-image:url({{ $value['images'][0] }})"></div>
                 <div class="big-news-item-content font-resize">
-                    <b>{!! $value[$lang[0]] !!}</b>
+                    <h4>{!! $value[$lang[0]] !!}</h4>
                     <div  class="big-news-item-content-text" style="">
-                        <p>{!! $value[$lang[1]] !!}</p>
+                        <p>{!! $value[$lang[2]] !!}</p>
                     </div>
                 </div>
             </a>

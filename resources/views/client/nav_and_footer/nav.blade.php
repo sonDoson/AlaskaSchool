@@ -18,6 +18,11 @@
             </div>
         </div>
         <div id="mySidenav" class="sidenav">
+            <form class="lang-button" method="POST" action="/Switch_Language">
+                {{ csrf_field() }}
+                <input type="hidden" id="session-language" value="{{ $lang_section }}">
+                <label class="switch"><input class="checkbox-language" type="checkbox" name="switch_lang" id="togBtn"><div class="slider round"><!--ADDED HTML --><span class="on">Vn</span><span class="off">En</span><!--END--></div></label>
+            </form>
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
             @for($i = 1; $i <= 5; $i++)
                 <a style="width: 250px;" class="{{ 'nav_' . $i }}" href="{{ '/cat/' . $i }}">{{ $category[$i][$lang[0]] }}</a>
@@ -43,7 +48,7 @@
                     <input type="text" name="search" />
                 </form>
             </nav>
-            <form id="lang-button" method="POST" action="/Switch_Language">
+            <form class="lang-button" method="POST" action="/Switch_Language">
                 {{ csrf_field() }}
                 <input type="hidden" id="session-language" value="{{ $lang_section }}">
                 <label class="switch"><input class="checkbox-language" type="checkbox" name="switch_lang" id="togBtn"><div class="slider round"><!--ADDED HTML --><span class="on">Vn</span><span class="off">En</span><!--END--></div></label>
@@ -85,7 +90,7 @@
             $('.checkbox-language').prop('checked', true); 
         }
         $('.checkbox-language').click(function(){
-            $('#lang-button').submit();
+            $('.lang-button').submit();
         });
     });
 </script>

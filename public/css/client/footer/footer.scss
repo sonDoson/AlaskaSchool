@@ -20,7 +20,22 @@
     #footer-text{
         line-height: 25px;
     }
-
+    #footer-right{
+        ul{
+            width: 100%;
+            li{
+                a{  
+                    line-height: 42px;
+                    transition: 0.2s;
+                    color: #fff;
+                    &:hover{
+                        color: #f99d1b; //#c3161b
+                    }
+                }
+                padding-right: 30px;
+            }
+        }
+    }
 
 @media (min-width: 1200px) {
   
@@ -33,7 +48,11 @@
             width: 223px;
         }
     }
-  
+    #footer-right{
+        li{
+            text-align: right;
+        }
+    }
 }
 
 
@@ -48,7 +67,11 @@
             width: 197px;
         }
     }
-  
+    #footer-right{
+        li{
+            text-align: right;
+        }
+    }
 }
 
 
@@ -63,7 +86,11 @@
             width: 307px;
         }
     }
-  
+    #footer-right{
+        li{
+            text-align: right;
+        }
+    }
 }
 
 
@@ -79,7 +106,11 @@
             width: 307px;
         }
     }
-  
+    #footer-right{
+        li{
+            text-align: center;
+        }
+    }
 }
     
 @media (min-width: 0px) and (max-width: 575px) {
@@ -93,5 +124,9 @@
             width: 147px;
         }
     }
-  
+    #footer-right{
+        li{
+            text-align: center;
+        }
+    }
 }

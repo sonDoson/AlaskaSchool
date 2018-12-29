@@ -28,19 +28,26 @@
 
 .big-news {
   margin-top: 20px; }
-  .big-news .big-news-item-image {
-    width: 300px;
-    height: 204px;
-    background-repeat: no-repeat;
-    background-size: cover; }
-  .big-news .big-news-item-content {
-    width: 300px;
-    padding-top: 10px; }
-    .big-news .big-news-item-content b {
-      font-size: 1.1em; }
-  .big-news .big-news-item-content-text {
-    height: auto;
-    width: 300px; }
+  .big-news .big-news-item h4 {
+    transition: 0.2s; }
+  .big-news .big-news-item:hover h4 {
+    color: #f99d1b; }
+
+.big-news-item-image {
+  width: 300px;
+  height: 204px;
+  background-repeat: no-repeat;
+  background-size: cover; }
+
+.big-news-item-content {
+  width: 300px;
+  padding-top: 10px; }
+  .big-news-item-content b {
+    font-size: 1.1em; }
+
+.big-news-item-content-text {
+  height: auto;
+  width: 300px; }
 
 .section-3 {
   margin-bottom: 20px; }
@@ -49,6 +56,10 @@
   width: 300px;
   outline: 1px solid #a6196f;
   outline-offset: 5px; }
+  .section-3-item h4 {
+    transition: 0.2s; }
+  .section-3-item:hover h4 {
+    color: #f99d1b; }
   .section-3-item h4 {
     margin-bottom: 5px; }
 
@@ -67,5 +78,47 @@
 .section-3-item-content-text {
   height: auto;
   width: 300px; }
+
+.message-box {
+  margin-bottom: 40px; }
+
+.message-box-item {
+  height: 204px;
+  width: 300px; }
+  .message-box-item h4 {
+    margin-bottom: 5px; }
+
+.message-box-item-image {
+  display: table;
+  position: relative;
+  width: 300px;
+  height: 204px;
+  background-repeat: no-repeat;
+  background-size: cover; }
+  .message-box-item-image h4 {
+    transition: 0.2s; }
+  .message-box-item-image:hover h4 {
+    color: #f99d1b; }
+  .message-box-item-image:hover .message-box-item-image-title {
+    background-color: rgba(255, 255, 255, 0.8); }
+  .message-box-item-image .message-box-item-image-title {
+    position: absolute;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.6);
+    height: 40px; }
+    .message-box-item-image .message-box-item-image-title .message-box-item-image-title-wrap .wrap-h {
+      line-height: 40px;
+      margin-right: 5px;
+      float: left; }
+    .message-box-item-image .message-box-item-image-title .message-box-item-image-title-wrap .message-box-item-image-title-arrow {
+      float: right;
+      margin-top: 11px;
+      width: 20px;
+      height: 20px;
+      margin-right: 5px;
+      background-image: url("../../../uploads/icon/arrow00.png");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain; }
 
 /*# sourceMappingURL=items.css.map */

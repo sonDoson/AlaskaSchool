@@ -41,6 +41,11 @@
                 </div>
             </div>
             <div id="mySidenav" class="sidenav">
+                <form class="lang-button" method="POST" action="/Switch_Language">
+                    {{ csrf_field() }}
+                    <input type="hidden" id="session-language" value="{{ $lang_section }}">
+                    <label class="switch"><input class="checkbox-language" type="checkbox" name="switch_lang" id="togBtn"><div class="slider round"><!--ADDED HTML --><span class="on">Vn</span><span class="off">En</span><!--END--></div></label>
+                </form>
                 <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
                 @for($i = 1; $i <= 5; $i++)
                     <a style="width: 250px;" id="{{ 'nav_' . $i }}" href="{{ '/cat/' . $i }}">{{ $category[$i][$lang[0]] }}</a>
@@ -68,7 +73,7 @@
                         <input type="text" name="search" />
                     </form>
                 </nav>
-                <form id="lang-button" method="POST" action="/Switch_Language">
+                <form class="lang-button" method="POST" action="/Switch_Language">
                     {{ csrf_field() }}
                     <input type="hidden" id="session-language" value="{{ $lang_section }}">
                     <label class="switch"><input class="checkbox-language" type="checkbox" name="switch_lang" id="togBtn"><div class="slider round"><!--ADDED HTML --><span class="on">Vn</span><span class="off">En</span><!--END--></div></label>
@@ -82,25 +87,13 @@
         </div>
     </header>
     <section class="banner full">
-            @if(!empty($section_1[key($section_1)]))
-            @if(sizeof($section_1[key($section_1)]) <= 4)
-            @for($i=0; $i < sizeof($section_1[key($section_1)]); $i++)
-            <article>
-            <a href="{!! '/cat/' . $section_1[key($section_1)][$i]['id_category']. '/' . $section_1[key($section_1)][$i]['id'] !!}">
-                <img src="{{ $section_1[key($section_1)][$i]['images'][0] }}" alt="" width="100%" height="auto" />
-            </a>
-            </article>
-            @endfor
-            @else
-            @for($i=0; $i < 4; $i++)
-            <article>
-            <a href="{!! '/cat/' . $section_1[key($section_1)][$i]['id_category']. '/' . $section_1[key($section_1)][$i]['id'] !!}">
-                <img src="{{ $section_1[key($section_1)][$i]['images'][0] }}" alt="" width="100%" height="auto" />
-            </a>
-            </article>
-            @endfor
-            @endif
-            @endif
+        @if(!empty($banner_images))
+            @foreach($banner_images as $key => $value)
+                <article>
+                <img src="{{ asset($value->image_path) }}" alt="" width="100%" height="auto" />
+                </article>
+            @endforeach
+        @endif
     </section>
     <!--div id="header-cover" style="background-image:url({{ asset('uploads/cover/cover_introduce.png') }})">
     </div-->
@@ -196,19 +189,21 @@
             </div>
             @endif
         </div>
-        <!--SECTION 3--> <!--short-item deleted-->
-        
-        <div class="section" id="section-3">
-            <div class="section-3 row" style="width: auto;padding: 0px!important;margin-left:0;">
+        <!--MESSAGE-BOX--> 
+        <div class="section" id="message-box">
+            <div class="message-box row" style="width: auto;padding: 0px!important;margin-left:0;">
             @foreach($section_3[0] as $key => $value)
                 <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-3 ml-0" style="padding-left: 0; margin-bottom: 20px;">
                 <a style="color: #000" href="{{ asset('/static-posts?id=') . $key }}">
-                <div class="section-3-item">
-                    <h4>&nbsp;&nbsp;{!! $value[$lang[0]] !!}</h4>
-                    <div class="section-3-item-image" style="background-image:url({{ $value['image'] }})"></div>
-                    <div class="section-3-item-content font-resize">
-                        <div class="section-3-item-content-text">
-                            <p>{!! $value['subtitle_vn'] !!}</p>
+                <div class="message-box-item">
+                    <div class="message-box-item-image" style="background-image:url({{ $value['image'] }})">
+                        <div class="message-box-item-image-title">
+                            <div class="message-box-item-image-title-wrap">
+                                <div class="wrap-h">
+                                <h4>&nbsp;&nbsp;{!! $value[$lang[0]] !!}</h4>
+                                </div>
+                                <div class="message-box-item-image-title-arrow"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -218,12 +213,15 @@
             @foreach($section_3[1] as $key => $value)
                 <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-3 ml-0" style="padding-left: 0; margin-bottom: 20px;">
                 <a style="color: #000" href="{{ asset('/form?id=') . $key }}">
-                <div class="section-3-item">
-                    <h4>&nbsp;&nbsp;{!! $value[$lang[0]] !!}</h4>
-                    <div class="section-3-item-image" style="background-image:url({{ $value['image'] }})"></div>
-                    <div class="section-3-item-content font-resize">
-                        <div class="section-3-item-content-text">
-                            <p>{!! $value['subtitle_vn'] !!}</p>
+                <div class="message-box-item">
+                    <div class="message-box-item-image" style="background-image:url({{ $value['image'] }})">
+                        <div class="message-box-item-image-title">
+                            <div class="message-box-item-image-title-wrap">
+                                <div class="wrap-h">
+                                    <h4>&nbsp{!! $value[$lang[0]] !!}</h4>
+                                </div>
+                                <div class="message-box-item-image-title-arrow"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -232,6 +230,7 @@
             @endforeach
             </div>
         </div>
+        
     </div>
 
     <footer>
@@ -274,6 +273,25 @@
         </div>
     </footer>
     <script src="{{ asset('js/function/introduce_slider.js') }}"></script>
+    <!---->
+    <script>
+        $().ready(function(){
+            //document.addEventListener('mousemove', mouseDown);
+            $('#back-section-2').mousedown(mouseDown);
+            $('#back-section-2').mouseup(mouseUp);
+            function mouseDown(){
+                $(this).on('mousemove', mouseMove);
+            }
+            function mouseMove(ev){
+                console.log(ev.clientX);
+                //console.log(ev.originalEvent.clientX);
+            }
+            function mouseUp(){
+                $(this).off('mousemove', mouseMove);
+            }
+        });
+    </script>
+    <!---->
     <script>
         $().ready(function(){
             var section_language = $('#session-language').attr('value');
@@ -283,7 +301,7 @@
                 $('.checkbox-language').prop('checked', true); 
             }
             $('.checkbox-language').click(function(){
-                $('#lang-button').submit();
+                $('.lang-button').submit();
             });
         });
     </script>

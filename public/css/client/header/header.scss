@@ -1,9 +1,4 @@
 /**/
-#lang-button{
-    position: absolute;
-    top: 40px;
-    right: 72px;
-}
 .switch {
   position: relative;
   display: inline-block;
@@ -20,7 +15,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #693ac1;
+  background-color: #c3161b;
   -webkit-transition: .4s;
   transition: .4s;
 }
@@ -38,7 +33,7 @@
 }
 
 input:checked + .slider {
-  background-color: #f44e42;
+  background-color: #f99d1b;
 }
 
 input:focus + .slider {
@@ -104,7 +99,11 @@ input:checked + .slider .off
 */
 
 @media (min-width: 1281px) {
-  
+    .lang-button{
+        position: absolute;
+        top: 40px;
+        right: 72px;
+    }
     #mobile-nav{
         display: none;
     }    
@@ -195,7 +194,11 @@ input:checked + .slider .off
 */
 
 @media (min-width: 1025px) and (max-width: 1280px) {
-  
+    .lang-button{
+        position: absolute;
+        top: 40px;
+        right: 72px;
+    }
     #mobile-nav{
         display: none;
     }    
@@ -285,6 +288,10 @@ input:checked + .slider .off
 */
 
 @media (min-width: 768px) and (max-width: 1024px) {
+    .lang-button{
+        margin-left: 20px;
+        margin-bottom: 30px;
+    }
     .container-nav{
         display: none;
     }
@@ -351,7 +358,10 @@ input:checked + .slider .off
 */
 
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
-  
+    .lang-button{
+        margin-left: 20px;
+        margin-bottom: 30px;
+    }
     .container-nav{
         display: none;
     }
@@ -419,7 +429,10 @@ input:checked + .slider .off
 */
 
 @media (min-width: 481px) and (max-width: 767px) {
-  
+    .lang-button{
+        margin-left: 20px;
+        margin-bottom: 30px;
+    }
     .container-nav{
         display: none;
     }
@@ -487,7 +500,10 @@ input:checked + .slider .off
 */
 
 @media (min-width: 320px) and (max-width: 480px) {
-  
+    .lang-button{
+        margin-left: 20px;
+        margin-bottom: 30px;
+    }
     .container-nav{
         display: none;
     }

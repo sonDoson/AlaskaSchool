@@ -1,9 +1,24 @@
+.btn-loadmore{
+    #load_more{
+        border: none;
+        line-height: 30px;
+        color: #fff;
+        font-weight: bold;
+        background-color: rgb(249, 157, 27);
+        transition: 0.2s;
+        &:hover{
+            background-color: #c3161b;
+        }
+    }
+
+}
+
 @media (min-width: 1200px) {
   
     .bn-section-0{
         width: 956px;
     }
-  
+
 }
 
 
@@ -12,6 +27,9 @@
     .bn-section-0{
         width: 956px;
         margin: 0 auto;
+    }
+    .btn-loadmore{
+        text-align: center;
     }
   
 }
@@ -22,6 +40,9 @@
     .bn-section-0{
         width: 636px;
         margin: 0 auto;
+    }
+    .btn-loadmore{
+        text-align: center;
     }
   
 }
@@ -34,6 +55,9 @@
         width: 636px;
         margin: 0 auto;
     }
+    .btn-loadmore{
+        text-align: center;
+    }
   
 }
     
@@ -42,6 +66,9 @@
     .bn-section-0{
         width: 300px;
         margin: 0 auto;
+    }
+    .btn-loadmore{
+        text-align: center;
     }
   
 }
