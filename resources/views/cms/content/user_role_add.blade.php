@@ -70,6 +70,15 @@
                         </td>
                     </tr>
                     @endforeach
+                    <tr>
+                        <td style="text-align: center;">Nhận email từ website</td>
+                        <td>
+                            <label class="container" style="position:relative;height: 18px">
+                                <input type="checkbox" name="email">
+                                <span class="checkmark" style="position:absolute;left:50%;margin-left:-14px"></span>
+                            </label>
+                        </td>
+                    </tr>
                 </tbody>
             </table>
             

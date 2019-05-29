@@ -8,6 +8,7 @@ use App\Sources\Cls\WebClass\Func\Method\CmsSubtitle;
 use App\Sources\Cls\WebClass\Func\Method\CmsImagesUpload;// wrong database
 use App\Sources\Cls\WebClass\Func\Method\PostsAddStress;
 use Illuminate\Support\Facades\Validator;
+use App\Sources\Cls\WebClass\Func\Tool\Resize;
 
 class CmsPostsAdd{
     public static function postsAdd($request){
@@ -27,7 +28,8 @@ class CmsPostsAdd{
                             'name_vn' => $request->name['vn'],
                             'value_en' => $request->value['en'],
                             'value_vn' => $request->value['vn'],
-                            'created_at' => Carbon::now('Asia/Ho_Chi_Minh')
+                            'created_at' => Carbon::now('Asia/Ho_Chi_Minh'),
+                            'updated_at' => Carbon::now('Asia/Ho_Chi_Minh')
                         ]);
             //edit total posts
             CmsTotalPostEdit::postsTotalEdit("posts_category", $request->id_category, 1);
@@ -39,8 +41,9 @@ class CmsPostsAdd{
             if($request->hasFile('images')){
                 $images = $request->file('images');
                 foreach($images as $key => $image){
+                    $extension = strtolower($image->getClientOriginalExtension());
                     //name
-                    $name = $id_posts . '_' . $key . '.' . $image->getClientOriginalExtension();
+                    $name = $id_posts . '_' . $key . '.' . $extension;
                     //path
                     $path = '/uploads/images/posts_posts';
                     $destinationPath = public_path($path);
@@ -51,6 +54,9 @@ class CmsPostsAdd{
                     DB::table($table_images)->insert(
                         ['id_posts' => $id_posts, 'image_name' => $name, 'image_path' => $image_path]
                     );
+                    //thumbnail
+                    $tb_select_path = public_path($image_path);
+                    Resize::path($tb_select_path)->width(350)->do();
                 }
             }
             //add stress

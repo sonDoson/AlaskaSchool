@@ -72,10 +72,11 @@ class ControllerCmsPosts extends Controller
         $name_class = "list";
         $layout = "WebUserPost.css";
         $db_item = CmsPosts::postsItem($request['id']);
-        return view('cms.content.posts_news_edit', compact('menu', 'layout', 'name_class', 'db_item'));
+        $images = DB::table('posts_posts_images')->where('id_posts', $request['id'])->get();
+        return view('cms.content.posts_news_edit', compact('menu', 'layout', 'images', 'name_class', 'db_item'));
     }
     public function postCmsPostsNewsEdit(Request $request){
-        CmsPosts::postsEdit($request);
-        return redirect()->route('getCmsPostsNewsList');
+        CmsPosts::postsEdit1($request);
+        return redirect()->back()->withErrors(['Thay đổi thành công!']);
     }
 }

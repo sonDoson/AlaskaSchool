@@ -76,6 +76,8 @@
 <script>
 //config
 	var config = {};
+    config.forcePasteAsPlainText = true;
+    config.removePlugins = 'pastefromword';
     config.resize_enabled = false;
     config.height = '200';
 	config.entities_latin = false;
@@ -93,6 +95,7 @@
 		{ name: 'styles', groups: [ 'styles' ] },
 		{ name: 'others', groups: [ 'others' ] },
 		{ name: 'about', groups: [ 'about' ] }
+        
 	];
 
 	config.removeButtons ='NewPage,Save,Preview,Print,Templates,About,CopyFormatting,RemoveFormat,Blockquote,CreateDiv,PasteText,PasteFromWord,Scayt,Maximize,ShowBlocks,BidiLtr,BidiRtl,Language';

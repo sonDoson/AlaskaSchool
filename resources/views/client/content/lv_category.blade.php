@@ -23,8 +23,8 @@
             @if(!empty($section_0[key($section_0)]))
             @foreach($section_0[key($section_0)] as $key => $value)
             <div class="big-news-item col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-4" style="margin-top: 20px;">
-                <a style="color: #000" href="{!! '/cat/' . $value['id_category']. '/' . $value['id'] !!}">
-                    <div class="big-news-item-image" style="background-image:url({{ $value['images'][0] }})"></div>
+                <a style="color: #000" href='{!! '/cat/' . str_replace(' ', '-', $value['category_vn']). '/' . $value['name_vn'] !!}'>
+                    <div class="big-news-item-image" style="background-image:url({{ $value['images']['thumbnail'] }})"></div>
                     <div class="big-news-item-content font-resize">
                         <h4>{!! $value[$lang[0]] !!}</h4>
                         <div  class="big-news-item-content-text" style="">

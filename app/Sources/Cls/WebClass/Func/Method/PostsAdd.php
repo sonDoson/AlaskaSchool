@@ -34,6 +34,7 @@ class PostsAdd{
                         'value_en'      => $request->value['en'],
                         'value_vn'      => $request->value['vn'],
                         'created_at'    => Carbon::now('Asia/Ho_Chi_Minh'),
+                        'updated_at'    => Carbon::now('Asia/Ho_Chi_Minh')
                     ]
                 );
                 
@@ -69,6 +70,7 @@ class PostsAdd{
                         'value_en'      => $request->value['en'],
                         'value_vn'      => $request->value['vn'],
                         'created_at'    => Carbon::now('Asia/Ho_Chi_Minh'),
+                        'updated_at'    => Carbon::now('Asia/Ho_Chi_Minh')
                     ]
                 );
                 //images

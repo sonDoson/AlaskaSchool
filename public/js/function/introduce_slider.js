@@ -4,8 +4,9 @@ $().ready(function(){
     });
     
     function construct_slider(){
+        $('.smoke-slider-right').css('opacity','1');//show the arrow
         var width_s = $('.wrap-section-2-slider').width();
-        index = takeMarginLeft(240, width_s);
+        index = takeMarginLeft(320, width_s);
         margin_left = index[0];
     }
     construct_slider();
@@ -18,13 +19,13 @@ $().ready(function(){
 
     $('.btn-slider-left').click(function(){
         if(margin_left < 0){
-            $('.section-2-slider').css('margin-left', margin_left += 240); // 240 is div width + gap
+            $('.section-2-slider').css('margin-left', margin_left += 320); // 240 is div width + gap
         }
         hoverSmoke(margin_left, index[1]);
     });
     $('.btn-slider-right').click(function(){
         if(margin_left > -index[1]){
-        $('.section-2-slider').css('margin-left', margin_left -= 240);
+        $('.section-2-slider').css('margin-left', margin_left -= 320);
         }
         hoverSmoke(margin_left, index[1]);
     });

@@ -24,7 +24,8 @@ class CmsGalaryCategoryAdd{
                     'id' => $request->id_category,
                     'name_en' => $request->name['en'],
                     'name_vn' => $request->name['vn'],
-                    'created_at' => Carbon::now('Asia/Ho_Chi_Minh')
+                    'created_at' => Carbon::now('Asia/Ho_Chi_Minh'),
+                    'updated_at' => Carbon::now('Asia/Ho_Chi_Minh')
               ]);
         //add images
         CmsImagesUpload::imagesUploadCategory($request, "galary_category", $id_posts);

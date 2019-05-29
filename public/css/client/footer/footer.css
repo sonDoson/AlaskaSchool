@@ -82,6 +82,8 @@ footer {
     #footer-left-form input[name="name"], #footer-left-form input[name="number"] {
       width: 147px; }
 
+  #footer-right ul {
+    padding-left: 20px; }
   #footer-right li {
     text-align: center; } }
 

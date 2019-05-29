@@ -14,6 +14,11 @@ use DB;
 class ControllerLvPosts extends Controller
 {
     public function getPosts(Request $request, $id_cat, $id_pos){
+        //transtate id
+        $id_cat  = DB::table('posts_category')->select('id')->where('name_vn', $id_cat)->first();
+        $id_cat = $id_cat->id;
+        $id_pos  = DB::table('posts_posts')->select('id')->where('name_vn', $id_pos)->first();
+        $id_pos = $id_pos->id;
         //contact
         $contact = ClientContact::getContact();
         //section
@@ -21,6 +26,7 @@ class ControllerLvPosts extends Controller
         $lang[] = 'name_' . $lang_section;
         $lang[] = 'value_' . $lang_section;
         $lang[] = 'subtitle_' . $lang_section;
+        $lang[] = 'category_' . $lang_section;
         //static text
         $db_static_text = DB::table('static_text_client')->get();
         $static_text = array();
@@ -40,6 +46,16 @@ class ControllerLvPosts extends Controller
         $section_1 = PostsGetItems::postsGetItems('posts_posts', 4);
         //right side
         $stress = PostsGetStress::postsGetStress('posts_posts', 5);
-        return view('client.content.lv_posts', compact('static_text', 'lang_section', 'lang', 'contact', 'category', 'section_1', 'section_0', 'stress', 'category_item', 'id_cat'));
+        //shortcut
+        $db_shortcut = db::table('shotcut_link')->where('flag', 1)->get();
+        $shortcut = array();
+        foreach($db_shortcut as $key => $value){
+            $shortcut[$key]['url'] = $value->url;
+            $shortcut[$key]['name_en'] = $value->name_en;
+            $shortcut[$key]['name_vn'] = $value->name_vn;
+        }
+        return view('client.content.lv_posts', compact('static_text', 'lang_section',
+            'lang', 'contact', 'category', 'section_1',
+            'section_0', 'stress', 'category_item', 'id_cat', 'shortcut'));
     }
 }

@@ -1,10 +1,26 @@
-.right-side li {
-  position: relative;
-  padding-top: 15px;
-  padding-bottom: 15px;
-  border-bottom: 1px solid grey; }
-  .right-side li .inner {
-    text-align: left;
-    width: 100%; }
+.right-side {
+  width: 100%; }
+  .right-side ul {
+    margin: 0;
+    padding: 0; }
+  .right-side li {
+    position: relative;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid grey; }
+    .right-side li .inner {
+      text-align: left;
+      width: 100%; }
+  .right-side .rs_bt_text {
+    height: auto;
+    width: 70%;
+    padding-right: 5px;
+    float: left; }
+  .right-side .rs_bt_image {
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 80px;
+    width: 30%;
+    float: right; }
 
 /*# sourceMappingURL=right_side.css.map */

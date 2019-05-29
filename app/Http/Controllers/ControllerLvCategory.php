@@ -13,6 +13,9 @@ use DB;
 class ControllerLvCategory extends Controller
 {
     public function getCategoryList(Request $request, $id){
+        //transtate id
+        $id  = DB::table('posts_category')->select('id')->where('name_vn', $id)->first();
+        $id = $id->id;
         //contact
         $contact = ClientContact::getContact();
         //section
@@ -34,8 +37,7 @@ class ControllerLvCategory extends Controller
         }
         //section 0
         $section_0 = PostsGetItems::postsGetItems('posts_posts', $id, 12);
-        //section 1
-        $section_1 = PostsGetItems::postsGetItems('posts_posts', 4);
+        //section 1 deleted
         //section extend
         $section_3 = null;
         if($id == 3){
@@ -43,6 +45,8 @@ class ControllerLvCategory extends Controller
         }   elseif($id == 5)    {
             $section_3 = ClientItem::getListItem('registration', 2);
         }
-        return view('client.content.lv_category', compact('static_text', 'lang_section', 'lang', 'contact', 'category', 'section_1', 'section_3', 'section_0', 'category_item', 'id'));
+        return view('client.content.lv_category', compact('static_text', 'lang_section',
+            'lang', 'contact', 'category', 
+            'section_3', 'section_0', 'category_item', 'id'));
     }
 }

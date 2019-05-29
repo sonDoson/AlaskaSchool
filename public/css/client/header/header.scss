@@ -238,18 +238,19 @@ input:checked + .slider .off
         }
         .nav-wrap{
             height: 110px;
-            width: 716px;
+            width: 740px;
             float: right;
             a{
                 color: #ffffff;
             }
             #nav-top{
+                padding-left: 0 !important;
                 margin-top: 40px;
                 #nav-search{
                     margin-top: -3px;
                     input[type=text]{
                         color: #ffffff;
-                        width: 230px;
+                        width: 250px;
                         padding: 3px 22px 3px 3px;
                         border: 1px solid #ef4747;
                         background-color: #a6196f;
@@ -265,10 +266,9 @@ input:checked + .slider .off
                 position: absolute;
                 bottom: 5px;
                 z-index: 40;
-                width: 600px;
+                width: 740px;
+                margin-left: -15px;
                 a{
-                    padding-left: 0 !important;
-                    width: 200px;
                 }
             }
         }

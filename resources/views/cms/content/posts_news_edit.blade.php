@@ -20,20 +20,39 @@
         <input type="hidden" name="id_posts" value="{{ $db_item['id'] }}" />
         <table>
         <tr>
-            <td class="post-td"><label>Tên Bài Viết: </label></td>
+            <td class="post-td" style="width: 140px;"><label>Tên Bài Viết: </label></td>
             <td class="post-td">
                 <input class="input-style" type="text" name="name[vn]" placeholder="{{ $db_item['name_vn'] }}" />
                 <input class="input-style" type="text" name="name[en]" placeholder="{{ $db_item['name_en'] }}" />
             </td>
         </tr>
         <tr>
-            <td class="post-td"><label>Ảnh Bìa: </label></td>
+            <td class="post-td" style="width: 140px;"><label>Thời Gian: </label></td>
+            <td class="post-td">
+                <input class="input-style" type="date" name="date" />
+            </td>
+        </tr>
+        <tr>
+            <td class="post-td"><label>Tải Thêm Ảnh: </label></td>
             <td class="post-td">
                 <input class="input-style" type="file" name="images[]"  multiple />
             </td>
         </tr>
+        </table>
+		<h4 style="text-align:center;">( Chọn để xóa ảnh )</h4>
+		<!--jmages uploaded-->
+		<ul class="uploaded">
+        @if(!empty($images))
+            @foreach($images as $key => $value)
+            <li><input type="checkbox" id="{{ 'cb' . $value->id }}" name="checkbox[]" value="{{ $value->id . '&' . $value->image_path }}" />
+                <label class="checkbox" for="{{ 'cb' . $value->id }}"><img src="{{ asset($value->image_path) }}" /></label>
+            </li>
+            @endforeach
+        @endif
+        </ul>
+        <table>
         <tr>
-            <td class="post-td"><label></label></td>
+            <td class="post-td" style="width: 140px;"><label></label></td>
             <td class="post-td">
                 <label class="container">Nổi Bật
                 @if($db_item['stress'] == true)

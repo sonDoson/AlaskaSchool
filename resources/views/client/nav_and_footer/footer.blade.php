@@ -33,11 +33,11 @@
         <div id="footer-right" class="col-xs-12 col-sm-12 col-md-12 col-lg-3 col-xl-3">
             <div class="row" style="width: 100%; height: 100%;margin: 0" >
                 <ul>
-                    <li><a href="{{ asset('/') }}">{{ $static_text[4][4][$lang[1]] }}</a></li>
-                    <li><a style="width: 250px;" id="nav_contact"  href="{{ '/contact' }}">{{ $contact[$lang[0]] }}</a></li>
+                    <li>&nbsp;&nbsp;<a href="{{ asset('/') }}">{{ $static_text[4][4][$lang[1]] }}</a></li>
+                    <li>&nbsp;&nbsp;<a style="width: 250px;" id="nav_contact"  href="{{ '/contact' }}">{{ $contact[$lang[0]] }}</a></li>
                     @for($i = 1; $i <= 5; $i++)
                         <li>
-                            <a style="width: 250px;" id="{{ 'nav_' . $i }}" href="{{ '/cat/' . $i }}">{{ $category[$i][$lang[0]] }}</a>
+                            &nbsp;&nbsp;<a style="width: 250px;" id="{{ 'nav_' . $i }}" href="{{ '/cat/' . $i }}">{{ $category[$i][$lang[0]] }}</a>
                         </li>
                     @endfor
                 </ul>

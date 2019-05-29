@@ -5,9 +5,16 @@ use Illuminate\Support\Facades\DB;
 
 class CmsImagesDelete{
     
-    public static function imagesDelete($request, $table, $id_posts, $good_files = 0){
-
+    public static function imagesDelete($table, $id_posts){
+        $table_images = $table . "_images";
+        //get images
+        $db_images = DB::table($table_images)->where('id_posts', $id_posts)->get();
+        foreach($db_images as $key => $value){
+            unlink( public_path($value->image_path));
+        }        
+        DB::table($table_images)->where('id_posts', $id_posts)->delete();
     }
+    
     public static function imagesDeleteSingleTable($request, $table){
         $table_images = $table . "_images";
         //explode image array
@@ -20,7 +27,7 @@ class CmsImagesDelete{
         
         foreach($req_image as $key => $value){
             //unlink old image
-            unlink( public_path($value['path']));
+            unlink(public_path($value['path']));
             //delete database
             DB::table($table_images)->where('id', $value['id'])->delete();
         }

@@ -1,4 +1,9 @@
 .right-side{
+    width: 100%;
+    ul{
+        margin:0;
+        padding:0;
+    }
     li{
         position: relative;
         padding-top: 15px;
@@ -8,5 +13,18 @@
             text-align: left;
             width: 100%;
         }
+    }
+    .rs_bt_text{
+        height: auto;
+        width: 70%;
+        padding-right: 5px;
+        float: left;
+    }
+    .rs_bt_image{
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 80px;
+        width: 30%;
+        float: right;
     }
 }

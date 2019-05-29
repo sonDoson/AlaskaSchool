@@ -12,7 +12,7 @@ class CmsPostsListByCategory{
         $item = 10;
         $skip = $index * $item;
         //default soft
-        $soft['key'] = "id";
+        $soft['key'] = "updated_at";
         $soft['value'] = "desc";
         //request soft
         if(isset($request['soft'])){

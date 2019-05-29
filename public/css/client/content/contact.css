@@ -30,15 +30,9 @@
       height: 280px; }
 
   .contact-container {
-    width: 100%;
-    display: grid;
-    grid-template-columns: auto 300px;
-    grid-column-gap: 20px; }
+    width: 100%; }
     .contact-container .contact-content {
-      width: 100%;
-      display: grid;
-      grid-template-rows: auto 250px;
-      grid-row-gap: 20px; }
+      width: 100%; }
     .contact-container #contact-map {
       position: absolute;
       bottom: 0;
@@ -78,15 +72,10 @@
       height: 280px; }
 
   .contact-container {
-    width: 100%;
-    display: grid;
-    grid-template-columns: auto 300px;
-    grid-column-gap: 20px; }
+    width: 600px;
+    margin: 0 auto; }
     .contact-container .contact-content {
-      width: 100%;
-      display: grid;
-      grid-template-rows: auto 250px;
-      grid-row-gap: 20px; }
+      width: 100%; }
     .contact-container #contact-map {
       position: absolute;
       bottom: 0;
@@ -126,15 +115,10 @@
       height: 280px; }
 
   .contact-container {
-    width: 100%;
-    display: grid;
-    grid-template-columns: auto 300px;
-    grid-column-gap: 20px; }
+    width: 620px;
+    margin: 0 auto; }
     .contact-container .contact-content {
-      width: 100%;
-      display: grid;
-      grid-template-rows: auto 250px;
-      grid-row-gap: 20px; }
+      width: 100%; }
     .contact-container #contact-map {
       position: absolute;
       bottom: 0;
@@ -174,15 +158,10 @@
       height: 280px; }
 
   .contact-container {
-    width: 100%;
-    display: grid;
-    grid-template-columns: auto 300px;
-    grid-column-gap: 20px; }
+    width: 600px;
+    margin: 0 auto; }
     .contact-container .contact-content {
-      width: 100%;
-      display: grid;
-      grid-template-rows: auto 250px;
-      grid-row-gap: 20px; }
+      width: 100%; }
     .contact-container #contact-map {
       position: absolute;
       bottom: 0;
@@ -222,15 +201,10 @@
       height: 280px; }
 
   .contact-container {
-    width: 100%;
-    display: grid;
-    grid-template-columns: auto 300px;
-    grid-column-gap: 20px; }
+    width: 300px;
+    margin: 0 auto; }
     .contact-container .contact-content {
-      width: 100%;
-      display: grid;
-      grid-template-rows: auto 250px;
-      grid-row-gap: 20px; }
+      width: 100%; }
     .contact-container #contact-map {
       position: absolute;
       bottom: 0;

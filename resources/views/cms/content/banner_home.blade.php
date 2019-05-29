@@ -29,12 +29,13 @@
 		<!--jmages uploaded-->
 		<ul class="uploaded">
         @if(!empty($images))
-        @foreach($images as $key => $value)
-        <li><input type="checkbox" id="{{ 'cb' . $value->id }}" name="checkbox[]" value="{{ $value->id . '&' . $value->image_path }}" />
-            <label class="checkbox" for="{{ 'cb' . $value->id }}"><img src="{{ asset($value->image_path) }}" /></label>
-        </li>
-        @endforeach
+            @foreach($images as $key => $value)
+            <li><input type="checkbox" id="{{ 'cb' . $value->id }}" name="checkbox[]" value="{{ $value->id . '&' . $value->image_path }}" />
+                <label class="checkbox" for="{{ 'cb' . $value->id }}"><img src="{{ asset($value->image_path) }}" /></label>
+            </li>
+            @endforeach
         @endif
+        </ul>
         <br />
         <button class="btn btn-submit">Cập nhật <i class="fas fa-plus"></i></button>
     </form>

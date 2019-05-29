@@ -23,6 +23,7 @@
             <tr>
                 <th style="width: 80px;"></th>
                 <th class="th-size" style="width: 500px;"><div class="btn-table" id="name_vn" value="name_vn" >Tên bài viết<div style="display: inline-block;" id="th_name_en_arrow"></div></div></th>
+                <th class="th-size" style="width: 100px;" >Làm Mới<div style="display: inline-block;" id="th_name_vn_arrow"></div></th>
                 <th class="th-size" style="width: 200px;"><div class="btn-table">Danh Mục<div style="display: inline-block;" id="th_name_vn_arrow"></div></div></th>
                 <th id="th_created_at"><div class="btn-table" id="created_at" value="created_at">Thời gian<div style="display: inline-block;" id="th_created_at_arrow"></div></div></th>
                 <th class="th-btn" ></th>
@@ -33,6 +34,7 @@
             <tr class="something">
                 <td class="table-id">&nbsp;{!! $key !!}</td>
                 <td class="table-name">&nbsp;{!! $value['name_vn'] !!}</td>
+                <td class="table-name"><button class="btn push-to-top" value="{{ $key . '-' . 'posts_posts' }}" style="float:right">Lên đầu</button></td>
                 <td class="table-name">&nbsp;{!! $value['category_vn'] !!}</td>
                 <td class="table-time">{!! $value['created'] !!}</td>
                 <td class="table-btn">
@@ -74,4 +76,5 @@
 <script src="{{ asset('js/userjs/table_button.js') }}" ></script>
 <script src="{{ asset('js/userjs/delete_conf_1.js') }}" ></script>
 <script src="{{ asset('js/function/getMethodUrl.js') }}" ></script>
+<script src="{{ asset('js/userjs/pushUpToTop.js') }}" ></script>
 @stop

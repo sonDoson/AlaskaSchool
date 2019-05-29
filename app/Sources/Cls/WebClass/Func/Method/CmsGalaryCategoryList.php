@@ -10,8 +10,13 @@ use Carbon\Carbon;
 class CmsGalaryCategoryList{
     
     public static function categoryList($request){
+        //index
+        $index = 0;
+        if(isset($request['page'])){ $index = $request['page'] - 1; }
+        $item = 10;
+        $skip = $index * $item;
         //default soft
-        $soft['key'] = "id";
+        $soft['key'] = "updated_at";
         $soft['value'] = "desc";
         //request soft
         if(isset($request['soft'])){
@@ -21,11 +26,12 @@ class CmsGalaryCategoryList{
         }
         //get name
         if(!isset($request['search'])){
-            $db_category = DB::table('galary_category')->orderBy($soft['key'], $soft['value'])->get();
+            $db_category = DB::table('galary_category')->orderBy($soft['key'], $soft['value'])
+                           ->skip($skip)->take($item)->get();
         }   else    {
             $db_category = DB::table('galary_category')
-                        ->where('name_vn', 'like', '%' . $request['search'] . '%')
-                        ->orderBy($soft['key'], $soft['value'])->get();
+                           ->where('name_vn', 'like', '%' . $request['search'] . '%')
+                           ->orderBy($soft['key'], $soft['value'])->skip($skip)->take($item)->get();
         }
         //get total
         $db_total = DB::table('galary_total')->get();

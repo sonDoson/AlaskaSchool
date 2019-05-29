@@ -21,6 +21,9 @@ class CmsPosts{
     public static function postsEdit($request){
         CmsPostsUpdate::postsEdit($request);
     }
+    public static function postsEdit1($request){
+        CmsPostsUpdate::postsEdit1($request);
+    }
     public static function postsDelete($id_posts){
         return CmsPostsDelete::postsDelete($id_posts);
     }

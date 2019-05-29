@@ -3,6 +3,9 @@
 
 <h2 id="title" >Danh sách {{ $category->name_vn }}</h2>
 <div class="box list" >
+    @if($user_validator_all->add == 1)
+        <a href="{{ '/cms/Recruitment/Add'  }}"><button class="btn btn-add btn-submit" style="display: inline-block; float: right;">Thêm <i class="fas fa-plus"></i></button></a>
+    @endif
     <table class="table" style="border: 2px solid red;">
         <tbody class="header">
             <tr>
@@ -23,7 +26,7 @@
                         @else
                             <button class="btn-list edit" style="background-color: lightgrey!important;"><i class="fas fa-pen" style="color: grey"></i></button>
                         @endif
-                        <button class="btn-list delete" style="background-color: lightgrey!important;"><i class="fas fa-trash-alt" style="color: grey"></i></button>
+                        <button class="btn-list delete" style="background-color: lightgrey!important;"><i class="fas fa-eye" style="color: grey"></i></button>
                     </div>
                 </td>
             </tr>

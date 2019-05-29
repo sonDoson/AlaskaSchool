@@ -11,17 +11,26 @@
 |
 */
 //
+Route::get('/run', 'ControllerRun@getRun')->name('getRun');
+Route::get('/rss', 'ControllerRSS@getRSS')->name('getRSS');
+
+
 Route::get('/', function () {
-    return redirect('/introduce');
+    return redirect('/introd');
 });
 Route::post('/Switch_Language', 'ControllerSwitchLanguage@postsSwitchLanguage')->name('postsSwitchLanguage');
-Route::get('/introduce', 'ControllerIntroduce@getIntroduce')->name('getIntroduce');
+Route::get('/introduce', 'ControllerIntroduce@getIntroduce')->name('getIntroduce_old');
+Route::get('/introd', 'ControllerIntro@getIntroduce')->name('getIntroduce');
 Route::get('/cat/{id_category}', 'ControllerLvCategory@getCategoryList')->name('getCategoryList');
 Route::get('/cat/{id_category}/{id_posts}', 'ControllerLvPosts@getPosts')->name('getPosts');
+Route::get('/360-alaska', 'Controller360@getcategory')->name('getcategory');
+Route::get('/360-alaska/{id_category}', 'Controller360@getPostsList')->name('getPostsList');
+Route::get('/360-alaska/{id_category}/{id_posts}', 'Controller360@getPosts')->name('getPosts');
 Route::get('/hline', 'ControllerHlineItems@getHline')->name('getHline');
 Route::get('/search', 'ControllerSearchItems@getSearch')->name('getSearch');
 Route::get('/contact', 'ControllerContact@getContact')->name('getContact');
 Route::get('/static-posts', 'ControllerStaticPosts@getStaticPosts')->name('getStaticPosts');
+Route::get('/phụ lục', 'ControllerStaticPosts@getStaticPosts')->name('getStaticPosts');
 Route::get('/form', 'ControllerClientForm@getClientForm')->name('getClientForm');
 //MAIL
 Route::post('/send_mail', 'ControllerSendMail@postSendMail')->name('postSendMail');
@@ -34,6 +43,8 @@ Route::get('/user/repasswd', 'ControllerUserRePasswd@getRePasswd')->name('getReP
 Route::post('/user/repasswd', 'ControllerUserRePasswd@postRePasswd')->name('postRePasswd');
 //Load More Item
 Route::get( '/ajaxLoadMoreItem', 'ControllerLoadMoreItem@getLoadMoreItem');
+Route::get( '/ajaxLoadMoreItemGalaryCategory', 'ControllerLoadMoreItem@getLoadMoreGalaryCategoryItem');
+Route::get( '/ajaxLoadMoreItemGalaryPosts', 'ControllerLoadMoreItem@getLoadMoreGalaryPostsItem');
 
 Route::group(['middleware' => ['auth']], function () {
     //CMS
@@ -55,6 +66,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/cms/User/Role/Delete', 'ControllerCmsUser@postCmsUserRoleDelete')->name('postCmsUserRoleDelete');
     //Cms Recruitment
     Route::get('/cms/Recruitment/List', 'ControllerCmsRecruiment@getCmsRecruimentList')->name('getCmsRecruimentList');
+    Route::get('/cms/Recruitment/Add', 'ControllerCmsRecruiment@getCmsRecruimentAdd')->name('getCmsRecruimentList');
+    Route::post('/cms/Recruitment/Add', 'ControllerCmsRecruiment@postCmsRecruimentAdd')->name('postCmsRecruimentAdd');
     //Cms Admissions
     Route::get('/cms/Admissions/List', 'ControllerCmsAdmissions@getCmsAdmissionsList')->name('getCmsAdmissionsList');
     
@@ -120,12 +133,21 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/cms/360-Alaska/Category', 'ControllerCmsGalary@getCmsGalaryCategoryList')->name('getCmsGalaryCategoryList');
     Route::get('/cms/360-Alaska/Category-Add', 'ControllerCmsGalary@getCmsGalaryCategoryAdd')->name('getCmsGalaryCategoryAdd');
     Route::post('/cms/360-Alaska/Category-Add', 'ControllerCmsGalary@postCmsGalaryCategoryAdd')->name('postCmsGalaryCategoryAdd');
-    
+    Route::get('/cms/360-Alaska/Category-Edit', 'ControllerCmsGalary@getCmsGalaryEdit')->name('getCmsGalaryEdit');
+    Route::post('/cms/360-Alaska/Category-Edit', 'ControllerCmsGalary@postCmsGalaryCategoryEdit')->name('postCmsGalaryCategoryEdit');
+    Route::post('/cms/360-Alaska/Category-Delete', 'ControllerCmsGalary@postCmsGalaryCategoryDelete')->name('postCmsGalaryCategoryDelete');
     //
     Route::get('/cms/360-Alaska/Posts', 'ControllerCmsGalary@getCmsGalaryPostsList')->name('getCmsGalaryPostsList');
     Route::get('/cms/360-Alaska/Posts-Add', 'ControllerCmsGalary@getCmsGalaryPostsAdd')->name('getCmsGalaryPostsAdd');
     Route::post('/cms/360-Alaska/Posts-Add', 'ControllerCmsGalary@postCmsGalaryPostsAdd')->name('postCmsGalaryPostsAdd');
-    
+    Route::get('/cms/360-Alaska/Posts-Edit', 'ControllerCmsGalary@getCmsGalaryPostsEdit')->name('getCmsGalaryPostsEdit');
+    Route::post('/cms/360-Alaska/Posts-Edit', 'ControllerCmsGalary@postCmsGalaryPostsEdit')->name('postCmsGalaryPostsEdit');
+    Route::post('/cms/360-Alaska/Posts-Delete', 'ControllerCmsGalary@postCmsGalaryPostsDelete')->name('postCmsGalaryPostsDelete');
+    //Shortcut
+    Route::get('/cms/Shortcut/Edit', 'ControllerCmsShortcut@getCmsShortcutEdit')->name('getCmsShortcutEdit');
+    Route::post('/cms/Shortcut/Edit', 'ControllerCmsShortcut@postCmsShortcutEdit')->name('postCmsShortcutEdit');
+    //ajax
+    Route::get('/ajaxPushMe', 'ControllerAjaxPushToTop@getPush');
     
     
     //

@@ -6,6 +6,7 @@
     height: 440px;
     background-color: #f99d1b;
     overflow-x: hidden;
+    overflow-y: hidden;
     .wrap-section-2{
         padding-top: 30px;
         display: table;
@@ -23,13 +24,14 @@
     .section-2-slider-item{
         float:left;
         margin-right: 20px;
-        width: 220px;
+        width: 300px;
         height: auto;
         display: inline-block;
         .section-2-slider-image{
-            width: 220px;
+            width: 300px;
             height: 220px;
-            background-color: grey;
+            background-repeat: no-repeat;
+            background-size: cover;
         }
         .section-2-slider-text{
             .section-2-slider-text-top{
@@ -70,7 +72,7 @@
     position: absolute;
     height: 440px;
     &:hover {
-        cursor:pointer;
+        cursor: pointer;
     }
 }
 .btn-slider-left{
@@ -155,7 +157,12 @@
     .btn-slider{
         width: 50px;
     }
-
+    .smoke-slider-left{
+        background-image: url('../../../uploads/button/btn_slider_left_3.png');
+    }
+    .smoke-slider-right{
+        background-image: url('../../../uploads/button/btn_slider_right_3.png');
+    }
 }
     
 @media (min-width: 0px) and (max-width: 575px) {
@@ -169,7 +176,13 @@
     .btn-slider{
         width: 50px;
     }
-  
+    .smoke-slider-left{
+        background-image: url('../../../uploads/button/btn_slider_left_3.png');
+    }
+    .smoke-slider-right{
+        background-image: url('../../../uploads/button/btn_slider_right_3.png');
+    }
+    
 }
 
 

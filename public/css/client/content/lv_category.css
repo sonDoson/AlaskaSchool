@@ -36,6 +36,8 @@
   .bn-section-0 {
     width: 300px;
     margin: 0 auto; }
+    .bn-section-0 .big-news-item {
+      margin-left: -7px; }
 
   .btn-loadmore {
     text-align: center; } }

@@ -64,6 +64,7 @@
 <script>
 //config
 	var config = {};
+    config.line_height="1em;1.1em;1.2em;1.3em;1.4em;1.5em" ;
     config.resize_enabled = false;
     config.height = '200';
 	config.entities_latin = false;

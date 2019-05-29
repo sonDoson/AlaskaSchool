@@ -17,15 +17,16 @@
                 <span style="font-size:30px;cursor:pointer" onclick="openNav()"><i style="margin-left: 5px; margin-top: 7px; color: #fff; font-size: 0.9em" class="fas fa-bars"></i></span>
             </div>
         </div>
-        <div id="mySidenav" class="sidenav">
+        <div id="mySidenav" class="sidenav" style="background-color:rgba(51, 41, 41, 0.9); font-family: Arial;">
             <form class="lang-button" method="POST" action="/Switch_Language">
                 {{ csrf_field() }}
                 <input type="hidden" id="session-language" value="{{ $lang_section }}">
                 <label class="switch"><input class="checkbox-language" type="checkbox" name="switch_lang" id="togBtn"><div class="slider round"><!--ADDED HTML --><span class="on">Vn</span><span class="off">En</span><!--END--></div></label>
             </form>
+            <a class="nav_360-alaska" style="width: 250px;" id="nav_360"  href="{{ '/360-alaska' }}">{{ $static_text[6][6][$lang[1]] }}</a>
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
             @for($i = 1; $i <= 5; $i++)
-                <a style="width: 250px;" class="{{ 'nav_' . $i }}" href="{{ '/cat/' . $i }}">{{ $category[$i][$lang[0]] }}</a>
+                <a style="width: 250px;" class="{{ 'nav_' . $i }}" href="{{ '/cat/' . str_replace(' ', '-', $category[$i]['name_vn']) }}">{{ $category[$i][$lang[0]] }}</a>
             @endfor
             <a style="width: 250px;" class="nav_contact"  href="{{ '/contact' }}">{{ $contact[$lang[0]] }}</a>
         </div>
@@ -54,8 +55,9 @@
                 <label class="switch"><input class="checkbox-language" type="checkbox" name="switch_lang" id="togBtn"><div class="slider round"><!--ADDED HTML --><span class="on">Vn</span><span class="off">En</span><!--END--></div></label>
             </form>
             <nav class="container" id="nav-bottom">
+                <a class="nav_360-alaska col-lg-3" style="width: 250px;" id="nav_360"  href="{{ '/360-alaska' }}"><b>{{ $static_text[6][6][$lang[1]] }}</b></a>
                 @for($i = 1; $i <= 3; $i++)
-                <a class="{{ 'nav_' . $i }} col-lg-4" id="{{ 'nav_' . $i }}" href="{{ '/cat/' . $i }}"><b>{{ $category[$i][$lang[0]] }}</b></a>
+                <a class="{{ 'nav_' . $i }} col-lg-3" id="{{ 'nav_' . $i }}" href="{{ '/cat/' . $i }}"><b>{{ $category[$i][$lang[0]] }}</b></a>
                 @endfor
             </nav>
 

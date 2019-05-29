@@ -4,17 +4,19 @@
     <div class="content-text font-resize">
         <h2 style="display: inline-block">{!! $section_0[$lang[0]] !!}</h2>
         @if($file !== null)
-            <div style="display: inline-block; margin-top: -5px">
-            <a href="{{ $file->file_path }}" download>
-            <button class="btn" 
-                style="background-color: DodgerBlue;
-                  border: none;
-                  color: white;
-                  padding: 5px 5px;
-                  cursor: pointer;
-                  font-size: 10px;">
-            <i class="fa fa-download"></i> Download Form</button></a>
-            </div>
+            @if($file->file_path !== "empty")
+                <div style="display: inline-block; margin-top: -5px">
+                <a href="{{ $file->file_path }}" download>
+                <button class="btn" 
+                    style="background-color: DodgerBlue;
+                      border: none;
+                      color: white;
+                      padding: 5px 5px;
+                      cursor: pointer;
+                      font-size: 10px;">
+                <i class="fa fa-download"></i> Download Form</button></a>
+                </div>
+            @endif
         @endif
         <br />
         <div class="fb-like" 

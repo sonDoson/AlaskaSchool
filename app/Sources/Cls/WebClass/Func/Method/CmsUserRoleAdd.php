@@ -16,9 +16,14 @@ class CmsUserRoleAdd{
         if($validator->fails()) {
             return [$validator->errors(), $request->all()];
         }   else    {
+            $email = 0;
+            if($request->email !== null){
+                $email = 1;
+            }
             $id_role = DB::table('user_role_name')->insertGetId(
                 [
-                    'name' => $request->name
+                    'name' => $request->name,
+                    'email' => $email
                 ]
             );
             

@@ -10,6 +10,7 @@ class CmsPostsGetItem{
         //get category
         $data_category = DB::table('posts_category')->where('id', $data_posts->id_category)->first();
         //get image
+        $image = array();
         $images = DB::table('posts_posts_images')->where('id_posts', $id_posts)->get();
         foreach($images as $key => $value){
             $image[] = $value->image_path;

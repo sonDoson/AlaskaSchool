@@ -20,9 +20,25 @@
         <input type="hidden" name="id_posts" value="{{ $db_posts['id_posts'] }}" />
         <table>
         <tr>
+            <td class="post-td" style="width: 140px;"><label>Tên Bài Viết: </label></td>
+            <td class="post-td">
+                <input class="input-style" type="text" name="name[vn]" placeholder="{{ $db_posts['name_vn'] }}" />
+                <input class="input-style" type="text" name="name[en]" placeholder="{{ $db_posts['name_en'] }}" />
+            </td>
+        </tr>
+        <tr>
             <td class="post-td"><label>File Đăng Ký: </label></td>
             <td class="post-td">
                 <input class="input-style" type="file" name="file"/>
+            </td>
+        </tr>
+        <tr>
+            <td class="post-td"><label></label></td>
+            <td class="post-td">
+                <label class="container">Check để xóa form đăng ký
+                    <input type="checkbox" name="stress">
+                    <span class="checkmark" style="border: 1px solid red;"></span>
+                </label>
             </td>
         </tr>
         <tr>

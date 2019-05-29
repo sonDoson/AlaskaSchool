@@ -4,6 +4,7 @@ namespace App\Sources\Cls\WebClass\Func;
 use Illuminate\Support\Facades\DB;
 use App\Sources\Cls\WebClass\Func\Method\CmsAdmisstionEdit;
 use App\Sources\Cls\WebClass\Func\Method\CmsAdmisstionGetPosts;
+use App\Sources\Cls\WebClass\Func\Method\CmsAdmisstionAdd;
 
 class CmsAdmissions{
     public static function admissionsList($id_category){
@@ -14,5 +15,8 @@ class CmsAdmissions{
     }
     public static function admisstionGetPosts($id){
         return CmsAdmisstionGetPosts::admisstionGetPosts($id);
+    }
+    public static function admisstionAdd($request){
+        return CmsAdmisstionAdd::Request($request);
     }
 }

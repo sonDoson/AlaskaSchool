@@ -2,7 +2,7 @@
 
 //Load Url
 var get = [];
-var get_name = [ 'search', 'soft', 'page']; //id url
+var get_name = [ 'search', 'soft', 'page', 'id_category']; //id url
 //
 var str = window.location.href;
 var res = str.split("?");

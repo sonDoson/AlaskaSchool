@@ -38,6 +38,13 @@ class ControllerClientForm extends Controller
         $section_0['name_vn'] = $db_section_0->name_vn;
         $section_0['value_en'] = $db_section_0->value_en;
         $section_0['value_vn'] = $db_section_0->value_vn;
+        //banner
+        $banner_images = DB::table('banner_images')->get();
+        $banner_image = array();
+        foreach($banner_images as $key => $value){
+            $banner_image[$key] = $value->image_path;
+        }
+        $section_0['images'] = $banner_image;
         //file
         $file = DB::table('registration_files')->where('id_posts', $request->id)->first();
         //section 1
